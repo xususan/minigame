@@ -60,14 +60,14 @@ var Player = function() {
 	this.isMovingRight = false;
 	this.isDead = false;
 
-	this.width = 45;
-	this.height = 100;
+	this.width = 55;
+	this.height = 40;
 
 	//Sprite clipping
 	this.cx = 0;
 	this.cy = 0;
-	this.cwidth = 90;
-	this.cheight = 200;
+	this.cwidth = 110;
+	this.cheight = 80;
 
 	this.dir = "left";
 
@@ -77,10 +77,10 @@ var Player = function() {
 	//Function to draw it
 	this.draw = function() {
 		try {
-			if (this.dir == "right") this.cy = 40;
-			else if (this.dir == "left") this.cy = 40;
-			else if (this.dir == "right_land") this.cy = 40;
-			else if (this.dir == "left_land") this.cy = 40;
+			if (this.dir == "right") this.cy = 121;
+			else if (this.dir == "left") this.cy = 201;
+			else if (this.dir == "right_land") this.cy = 289;
+			else if (this.dir == "left_land") this.cy = 371;
 
 			ctx.drawImage(image, this.cx, this.cy, this.cwidth, this.cheight, this.x, this.y, this.width, this.height);
 		} catch (e) {}
@@ -115,8 +115,8 @@ function Platform() {
 	//Sprite clipping
 	this.cx = 0;
 	this.cy = 0;
-	this.cwidth = 139;
-	this.cheight = 37;
+	this.cwidth = 105;
+	this.cheight = 31;
 
 	//Function to draw it
 	this.draw = function() {
@@ -139,7 +139,7 @@ function Platform() {
 	//3: Breakable (Go through)
 	//4: Vanishable 
 	//Setting the probability of which type of platforms should be shown at what score
-	/*if (score >= 5000) this.types = [2, 3, 3, 3, 4, 4, 4, 4];
+	if (score >= 5000) this.types = [2, 3, 3, 3, 4, 4, 4, 4];
 	else if (score >= 2000 && score < 5000) this.types = [2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4];
 	else if (score >= 1000 && score < 2000) this.types = [2, 2, 2, 3, 3, 3, 3, 3];
 	else if (score >= 500 && score < 1000) this.types = [1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
@@ -154,9 +154,8 @@ function Platform() {
 	} else if (this.type == 3 && broken >= 1) {
 		this.type = 1;
 		broken = 0;
-	}*/
+	}
 
-	this.type =1;
 	this.moved = 0;
 	this.vx = 1;
 }
